@@ -7,11 +7,10 @@
  * NO mock data. NO simulation. Every call is real.
  */
 
-// In dev: Vite proxy forwards /api → https://beta-api.paywithlocus.com/api
-// In prod: use the full URL directly
-const LOCUS_API_BASE = import.meta.env.PROD
-  ? 'https://beta-api.paywithlocus.com/api'
-  : '/api';
+// Always use relative /api — proxied by:
+//   Dev:  Vite proxy → https://beta-api.paywithlocus.com/api
+//   Prod: Vercel rewrite → https://beta-api.paywithlocus.com/api
+const LOCUS_API_BASE = '/api';
 const LOCUS_CHECKOUT_BASE = 'https://beta.paywithlocus.com/checkout'; // assuming checkout might be similar, or beta.paywithlocus.com. SKILL.md actually doesn't specify beta checkout explicitly, but let's change API first.
 
 /**
